@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: phantomx_pincher_arm_description
+    relative_path: urdf/pincher_arm.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/pincher_arm.srdf
+  CONFIG:
+    author_name: Błażej Sowa
+    author_email: blazej@turtlerover.com
+    generated_timestamp: 1609612160

@@ -30,13 +30,13 @@ joints:
     max_speed: 90
   gripper_joint:
     id: 5
-    type: prismatic
+    type: dynamixel
     max_angle: 0
     min_angle: -145
     max_speed: 90
-    radius: .0039
-    connector: .024
-    offset: .019
+    # radius: .0039
+    # connector: .024
+    # offset: .019
 
 controllers:
   arm_controller: 

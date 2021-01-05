@@ -28,6 +28,8 @@
       elbow_ulimit:=2.38
       wrist_llimit:=-1.72
       wrist_ulimit:=1.68
+      gripper_llimit:=-2.6
+      gripper_ulimit:=0.0
       *origin">
 
     <link name="arm_base_link"/>
@@ -41,6 +43,7 @@
     <xacro:dynamixel_AX12_fixed parent="arm_base_link" name="arm_shoulder_pan_servo">
       <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}"/>
     </xacro:dynamixel_AX12_fixed>
+
     <xacro:bioloid_F3_revolute parent="arm_shoulder_pan_servo_link" name="arm_shoulder_pan" color="${color}"
                                vlimit="${joints_vlimit}" llimit="${pan_llimit}" ulimit="${pan_ulimit}">
       <origin xyz="0 ${AX12_WIDTH/2} 0" rpy="${-pi/2} ${pi/2} ${pi}"/>
@@ -50,19 +53,24 @@
     <xacro:dynamixel_AX12_fixed parent="arm_shoulder_pan_link" name="arm_shoulder_lift_servo">
       <origin xyz="0 0 ${-AX12_HEIGHT-F10_HEIGHT+0.001}" rpy="0 ${pi} 0"/>
     </xacro:dynamixel_AX12_fixed>
+
     <xacro:bioloid_F4_revolute parent="arm_shoulder_lift_servo_link" name="arm_shoulder_lift" color="${color}"
                                vlimit="${joints_vlimit}" llimit="${shoulder_llimit}" ulimit="${shoulder_ulimit}">
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:bioloid_F4_revolute>
+
     <xacro:bioloid_F10_fixed parent="arm_shoulder_lift_link" name="arm_shoulder_F10_0" color="${color}">
       <origin xyz="0 0 ${F4_HEIGHT+F10_HEIGHT/2}" rpy="0 0 0"/>
     </xacro:bioloid_F10_fixed>
+
     <xacro:bioloid_F10_fixed parent="arm_shoulder_F10_0_link" name="arm_shoulder_F10_1" color="${color}">
       <origin xyz="0 0 ${F10_HEIGHT}" rpy="0 0 0"/>
     </xacro:bioloid_F10_fixed>
+
     <xacro:bioloid_F10_fixed parent="arm_shoulder_F10_1_link" name="arm_shoulder_F10_2" color="${color}">
       <origin xyz="0 0 ${F10_HEIGHT}" rpy="0 0 0"/>
     </xacro:bioloid_F10_fixed>
+
     <xacro:bioloid_F3_fixed parent="arm_shoulder_F10_2_link" name="arm_shoulder_F3_0" color="${color}">
       <origin xyz="0 0 ${F10_HEIGHT/2}" rpy="0 ${pi} 0"/>
     </xacro:bioloid_F3_fixed>
@@ -71,19 +79,24 @@
     <xacro:dynamixel_AX12_fixed parent="arm_shoulder_F3_0_link" name="arm_elbow_flex_servo">
       <origin xyz="0 0 ${-AX12_HEIGHT-F10_HEIGHT+0.001}" rpy="0 ${pi} 0"/>
     </xacro:dynamixel_AX12_fixed>
+
     <xacro:bioloid_F4_revolute parent="arm_elbow_flex_servo_link" name="arm_elbow_flex" color="${color}"
                                vlimit="${joints_vlimit}" llimit="${elbow_llimit}" ulimit="${elbow_ulimit}">
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:bioloid_F4_revolute>
+
     <xacro:bioloid_F10_fixed parent="arm_elbow_flex_link" name="arm_elbow_F10_0" color="${color}">
       <origin xyz="0 0 ${F4_HEIGHT+F10_HEIGHT/2}" rpy="0 0 0"/>
     </xacro:bioloid_F10_fixed>
+
     <xacro:bioloid_F10_fixed parent="arm_elbow_F10_0_link" name="arm_elbow_F10_1" color="${color}">
       <origin xyz="0 0 ${F10_HEIGHT}" rpy="0 0 0"/>
     </xacro:bioloid_F10_fixed>
+
     <xacro:bioloid_F10_fixed parent="arm_elbow_F10_1_link" name="arm_elbow_F10_2" color="${color}">
       <origin xyz="0 0 ${F10_HEIGHT}" rpy="0 0 0"/>
     </xacro:bioloid_F10_fixed>
+
     <xacro:bioloid_F3_fixed parent="arm_elbow_F10_2_link" name="arm_elbow_F3_0" color="${color}">
       <origin xyz="0 0 ${F10_HEIGHT/2}" rpy="0 ${pi} 0"/>
     </xacro:bioloid_F3_fixed>
@@ -111,38 +124,47 @@
       <origin xyz="0  ${AX12_WIDTH/2} 0" rpy="${pi} 0 ${pi/2}"/>
     </xacro:gripper_finger_base>
 
+    <link name="gripper_active_link"/>
+    <joint name="gripper_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="30" velocity="${joints_vlimit}" lower="${gripper_llimit}" upper="${gripper_ulimit}"/>
+      <parent link="gripper_finger_base_link"/>
+      <child link="gripper_active_link"/>
+    </joint>
+
     <!-- Finger 1 --> 
-    <joint name="gripper_joint" type="prismatic">
+    <xacro:pincher_gripper name="gripper_finger1" color="${color}" >
+      <origin xyz="0 0.01 0" rpy="${pi/2} 0 ${pi/2}"/>
+    </xacro:pincher_gripper>
+
+    <joint name="gripper_finger1_joint" type="prismatic">
       <origin xyz="0.019 0 0" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
       <limit effort="30" velocity="0.05" lower="0.001" upper="0.0175"/>
       <parent link="gripper_finger_base_link"/>
-      <child link="gripper_active_link"/>
+      <child link="gripper_finger1_link"/>
     </joint> 
-    
-    <xacro:pincher_gripper name="gripper_active" color="${color}" >
-      <origin xyz="0 0.01 0" rpy="${pi/2} 0 ${pi/2}"/>
-    </xacro:pincher_gripper>
       
     <!-- Finger 2 -->
-    <joint name="gripper2_joint" type="prismatic">
+    <xacro:pincher_gripper name="gripper_finger2" color="${color}" >
+      <origin xyz="0 0.01 0" rpy="${pi/2} 0 ${pi/2}"/>
+    </xacro:pincher_gripper>
+
+    <joint name="gripper_finger2_joint" type="prismatic">
       <origin xyz="0.019 0 0" rpy="${pi} 0 0"/>
       <axis xyz="0 1 0"/>
       <limit effort="30" velocity="0.05" lower="0.001" upper="0.0175"/>
       <parent link="gripper_finger_base_link"/>
-      <child link="gripper_active2_link"/>
-      <mimic joint="gripper_joint"/>
+      <child link="gripper_finger2_link"/>
+      <mimic joint="gripper_finger1_joint"/>
     </joint>
-
-    <xacro:pincher_gripper name="gripper_active2" color="${color}" >
-      <origin xyz="0 0.01 0" rpy="${pi/2} 0 ${pi/2}"/>
-    </xacro:pincher_gripper>
 
     <!-- fake gripper joint -->
     <link name="gripper_fake_link"/>
     <joint name="gripper_fake_joint" type="revolute">
-      <origin xyz="0 0 0.085" rpy="0 -1.57 0"/>
-      <parent link="arm_wrist_flex_link"/>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <parent link="gripper_finger_base_link"/>
       <child link="gripper_fake_link"/>
       <limit effort="30" velocity="1" lower="-3.14" upper="3.14"/>
       <axis xyz="1 0 0"/>

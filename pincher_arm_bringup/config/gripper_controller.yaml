@@ -1,6 +1,4 @@
-model:  parallel
-invert: false
-min_opening: 0.001
-max_opening: 0.0175
-center: 0
-joint: gripper_joint
+min_opening: 0.002
+max_opening: 0.0316
+tolerance: 0.001
+joint: gripper_finger1_joint

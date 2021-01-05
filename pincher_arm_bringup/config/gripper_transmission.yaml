@@ -2,4 +2,6 @@ source_joint: gripper_joint
 target_joint: gripper_finger1_joint
 radius: .0078
 connector: .024
-offset: .019
+offset: .016
+min_width: 0.001
+max_width: 0.0158

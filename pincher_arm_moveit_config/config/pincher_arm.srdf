@@ -24,6 +24,18 @@
         <joint name="arm_wrist_flex_joint" value="0" />
         <joint name="gripper_fake_joint" value="0" />
     </group_state>
+    <group_state name="gripper_open" group="gripper">
+        <joint name="gripper_finger1_joint" value="0.0158" />
+        <joint name="gripper_finger2_joint" value="0.0158" />
+    </group_state>
+    <group_state name="gripper_mid" group="gripper">
+        <joint name="gripper_finger1_joint" value="0.0084" />
+        <joint name="gripper_finger2_joint" value="0.0084" />
+    </group_state>
+    <group_state name="gripper_closed" group="gripper">
+        <joint name="gripper_finger1_joint" value="0.001" />
+        <joint name="gripper_finger2_joint" value="0.001" />
+    </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="gripper" parent_link="gripper_finger_base_link" group="gripper" parent_group="arm" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->

@@ -12,6 +12,7 @@ controller_list:
     action_ns: gripper_action
     type: GripperCommand
     default: true
-    command_joint: gripper_joint
+    parallel: true
     joints:
-      - gripper_joint
+      - gripper_finger1_joint
+      - gripper_finger2_joint

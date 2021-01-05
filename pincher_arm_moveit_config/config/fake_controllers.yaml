@@ -7,4 +7,5 @@ controller_list:
       - arm_wrist_flex_joint
   - name: fake_gripper_controller
     joints:
-      - gripper_joint
+      - gripper_finger1_joint
+      - gripper_finger2_joint

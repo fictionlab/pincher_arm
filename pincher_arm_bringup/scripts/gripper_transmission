@@ -10,6 +10,7 @@ rospy.init_node("gripper_joint_pub")
 
 source_joint = rospy.get_param("~source_joint")
 target_joint = rospy.get_param("~target_joint")
+mimic_joint = rospy.get_param("~mimic_joint")
 radius = rospy.get_param("~radius")
 connector = rospy.get_param("~connector")
 offset = rospy.get_param("~offset")
@@ -61,13 +62,13 @@ def joint_cb(msg):
         if name == source_joint:
             new_msg = JointState()
             new_msg.header.stamp = msg.header.stamp
-            new_msg.name = [target_joint]
+            new_msg.name = [target_joint, mimic_joint]
 
             ang = msg.position[i]
             vel = msg.velocity[i]
 
-            new_msg.position = [angleToWidth(ang)]
-            new_msg.velocity = [velocityRevoluteToPrismatic(ang, vel)]
+            new_msg.position = [angleToWidth(ang)] * 2
+            new_msg.velocity = [velocityRevoluteToPrismatic(ang, vel)] * 2
 
             joint_pub.publish(new_msg)
 

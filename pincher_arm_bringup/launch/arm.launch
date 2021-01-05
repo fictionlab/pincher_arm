@@ -2,14 +2,14 @@
   <arg name="sim" default="false"/>
 
   <param name="robot_description" 
-         command="xacro $(find phantomx_pincher_arm_description)/urdf/pincher_arm.urdf.xacro"/>
+         command="xacro $(find pincher_arm_description)/urdf/pincher_arm.urdf.xacro"/>
 
   <node name="robot_state_publisher" 
         pkg="robot_state_publisher" 
         type="robot_state_publisher"/>
 
   <node name="fake_joint_pub" 
-        pkg="phantomx_pincher_arm_bringup"
+        pkg="pincher_arm_bringup"
         type="fake_joint_pub.py"/>
 
   <node name="arbotix" 
@@ -17,7 +17,7 @@
         type="arbotix_driver"
         clear_params="true">
     <rosparam command="load"
-              file="$(find phantomx_pincher_arm_bringup)/config/arm.yaml" />
+              file="$(find pincher_arm_bringup)/config/arm.yaml" />
     <param name="sim" value="$(arg sim)"/>
   </node>
 
@@ -26,7 +26,7 @@
         type="gripper_controller"
         clear_params="true">
     <rosparam command="load"
-              file="$(find phantomx_pincher_arm_bringup)/config/gripper.yaml" />
-  </node>
+              file="$(find pincher_arm_bringup)/config/gripper.yaml" />
 
+  </node>
 </launch>

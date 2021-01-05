@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(phantomx_pincher_arm_description)
+project(pincher_arm_description)
 
 find_package(catkin REQUIRED)
 

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>phantomx_pincher_arm_bringup</name>
+  <name>pincher_arm_bringup</name>
   <version>0.0.0</version>
   <description>
     Launch files for starting PhantomX Pincher arm drivers.

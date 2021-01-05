@@ -38,7 +38,7 @@
       <visual>
         <origin xyz="-0.028 -0.0493 0.014" rpy="0.0 0.0 -${pi/2}"/>
         <geometry>
-          <mesh filename="package://phantomx_pincher_arm_description/meshes/mount.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+          <mesh filename="package://pincher_arm_description/meshes/mount.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
         <material name="${color}"/>
       </visual>
@@ -71,7 +71,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://phantomx_pincher_arm_description/meshes/ax12_box.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+          <mesh filename="package://pincher_arm_description/meshes/ax12_box.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
         <material name="Black"/>
       </visual>
@@ -103,7 +103,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://phantomx_pincher_arm_description/meshes/F10.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+          <mesh filename="package://pincher_arm_description/meshes/F10.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
         <material name="${color}"/>
       </visual>
@@ -136,7 +136,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://phantomx_pincher_arm_description/meshes/F3.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+          <mesh filename="package://pincher_arm_description/meshes/F3.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
         <material name="${color}"/>
       </visual>
@@ -172,7 +172,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://phantomx_pincher_arm_description/meshes/F3.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+          <mesh filename="package://pincher_arm_description/meshes/F3.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
         <material name="${color}"/>
       </visual>
@@ -208,7 +208,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://phantomx_pincher_arm_description/meshes/F2.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+          <mesh filename="package://pincher_arm_description/meshes/F2.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
         <material name="${color}"/>
       </visual>
@@ -244,7 +244,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://phantomx_pincher_arm_description/meshes/F4.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+          <mesh filename="package://pincher_arm_description/meshes/F4.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
         <material name="${color}"/>
       </visual>
@@ -301,7 +301,7 @@
       <visual>
         <xacro:insert_block name="origin"/>
         <geometry>
-          <mesh filename="package://phantomx_pincher_arm_description/meshes/pincher_finger.stl" scale=".01 .01 .01"/>
+          <mesh filename="package://pincher_arm_description/meshes/pincher_finger.stl" scale=".01 .01 .01"/>
         </geometry>
         <material name="${color}"/>
       </visual>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>phantomx_pincher_arm_description</name>
+  <name>pincher_arm</name>
   <version>0.0.0</version>
   <description>
-    URDF Description package for PhantomX Pincher arm
+    The pincher_arm metapackage.
   </description>
 
   <maintainer email="blazej@turtlerover.com">Błażej Sowa</maintainer>
@@ -12,5 +12,11 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  
+  <exec_depend>pincher_arm_bringup</exec_depend>
+  <exec_depend>pincher_arm_description</exec_depend>
+  <exec_depend>pincher_arm_moveit_config</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
 </package>

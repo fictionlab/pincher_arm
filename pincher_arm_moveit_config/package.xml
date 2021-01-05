@@ -1,6 +1,6 @@
 <package>
 
-  <name>phantomx_pincher_arm_moveit_config</name>
+  <name>pincher_arm_moveit_config</name>
   <version>0.0.0</version>
   <description>
      An automatically generated package with all the configuration and launch files for using the pincher_arm with the MoveIt! Motion Planning Framework
@@ -27,6 +27,6 @@
   <run_depend>tf2_ros</run_depend>
   <run_depend>xacro</run_depend>
     
-  <run_depend>phantomx_pincher_arm_description</run_depend>
+  <run_depend>pincher_arm_description</run_depend>
 
 </package>

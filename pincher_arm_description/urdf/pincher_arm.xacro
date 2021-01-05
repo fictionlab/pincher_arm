@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- PhantomX Pincher arm description -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find phantomx_pincher_arm_description)/urdf/arm_hardware.xacro"/>
+  <xacro:include filename="$(find pincher_arm_description)/urdf/arm_hardware.xacro"/>
 
   <material name="White">
     <color rgba="0.87 0.90 0.87 1.0"/>

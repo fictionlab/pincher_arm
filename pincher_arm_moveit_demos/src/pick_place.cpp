@@ -195,15 +195,15 @@ void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& pla
   collision_objects[0].primitives.resize(1);
   collision_objects[0].primitives[0].type = collision_objects[0].primitives[0].BOX;
   collision_objects[0].primitives[0].dimensions.resize(3);
-  collision_objects[0].primitives[0].dimensions[0] = 0.2;
-  collision_objects[0].primitives[0].dimensions[1] = 0.4;
-  collision_objects[0].primitives[0].dimensions[2] = 0.4;
+  collision_objects[0].primitives[0].dimensions[0] = 0.1;
+  collision_objects[0].primitives[0].dimensions[1] = 0.2;
+  collision_objects[0].primitives[0].dimensions[2] = 0.2;
 
   /* Define the pose of the table. */
   collision_objects[0].primitive_poses.resize(1);
-  collision_objects[0].primitive_poses[0].position.x = 0.5;
+  collision_objects[0].primitive_poses[0].position.x = 0.15;
   collision_objects[0].primitive_poses[0].position.y = 0;
-  collision_objects[0].primitive_poses[0].position.z = 0.2;
+  collision_objects[0].primitive_poses[0].position.z = 0.1;
   collision_objects[0].primitive_poses[0].orientation.w = 1.0;
 
   collision_objects[0].operation = collision_objects[0].ADD;
@@ -216,15 +216,15 @@ void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& pla
   collision_objects[1].primitives.resize(1);
   collision_objects[1].primitives[0].type = collision_objects[1].primitives[0].BOX;
   collision_objects[1].primitives[0].dimensions.resize(3);
-  collision_objects[1].primitives[0].dimensions[0] = 0.4;
-  collision_objects[1].primitives[0].dimensions[1] = 0.2;
-  collision_objects[1].primitives[0].dimensions[2] = 0.4;
+  collision_objects[1].primitives[0].dimensions[0] = 0.2;
+  collision_objects[1].primitives[0].dimensions[1] = 0.1;
+  collision_objects[1].primitives[0].dimensions[2] = 0.1;
 
   /* Define the pose of the table. */
   collision_objects[1].primitive_poses.resize(1);
   collision_objects[1].primitive_poses[0].position.x = 0;
-  collision_objects[1].primitive_poses[0].position.y = 0.5;
-  collision_objects[1].primitive_poses[0].position.z = 0.2;
+  collision_objects[1].primitive_poses[0].position.y = 0.15;
+  collision_objects[1].primitive_poses[0].position.z = 0.05;
   collision_objects[1].primitive_poses[0].orientation.w = 1.0;
 
   collision_objects[1].operation = collision_objects[1].ADD;
@@ -237,15 +237,15 @@ void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& pla
   collision_objects[2].primitives.resize(1);
   collision_objects[2].primitives[0].type = collision_objects[1].primitives[0].BOX;
   collision_objects[2].primitives[0].dimensions.resize(3);
-  collision_objects[2].primitives[0].dimensions[0] = 0.02;
-  collision_objects[2].primitives[0].dimensions[1] = 0.02;
-  collision_objects[2].primitives[0].dimensions[2] = 0.2;
+  collision_objects[2].primitives[0].dimensions[0] = 0.01;
+  collision_objects[2].primitives[0].dimensions[1] = 0.01;
+  collision_objects[2].primitives[0].dimensions[2] = 0.1;
 
   /* Define the pose of the object. */
   collision_objects[2].primitive_poses.resize(1);
-  collision_objects[2].primitive_poses[0].position.x = 0.5;
+  collision_objects[2].primitive_poses[0].position.x = 0.15;
   collision_objects[2].primitive_poses[0].position.y = 0;
-  collision_objects[2].primitive_poses[0].position.z = 0.5;
+  collision_objects[2].primitive_poses[0].position.z = 0.25;
   collision_objects[2].primitive_poses[0].orientation.w = 1.0;
 
   collision_objects[2].operation = collision_objects[2].ADD;
@@ -274,7 +274,7 @@ int main(int argc, char** argv)
 
   ros::WallDuration(1.0).sleep();
 
-  place(group);
+  // place(group);
 
   ros::waitForShutdown();
   return 0;

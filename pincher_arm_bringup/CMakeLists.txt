@@ -15,5 +15,7 @@ install(DIRECTORY launch
 
 catkin_install_python(PROGRAMS
   scripts/fake_joint_pub
+  scripts/gripper_controller
+  scripts/gripper_transmission
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

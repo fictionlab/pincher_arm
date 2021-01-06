@@ -56,7 +56,7 @@ void openGripper(trajectory_msgs::JointTrajectory& posture)
   posture.points[0].positions.resize(2);
   posture.points[0].positions[0] = 0.015;
   posture.points[0].positions[1] = 0.015;
-  posture.points[0].time_from_start = ros::Duration(0.5);
+  posture.points[0].time_from_start = ros::Duration(5.0);
 }
 
 void closedGripper(trajectory_msgs::JointTrajectory& posture)
@@ -71,7 +71,7 @@ void closedGripper(trajectory_msgs::JointTrajectory& posture)
   posture.points[0].positions.resize(2);
   posture.points[0].positions[0] = 0.001;
   posture.points[0].positions[1] = 0.001;
-  posture.points[0].time_from_start = ros::Duration(0.5);
+  posture.points[0].time_from_start = ros::Duration(5.0);
 }
 
 void pick(moveit::planning_interface::MoveGroupInterface& move_group)
@@ -89,11 +89,12 @@ void pick(moveit::planning_interface::MoveGroupInterface& move_group)
   // transform from `"panda_link8"` to the palm of the end effector.
   grasps[0].grasp_pose.header.frame_id = "arm_base_link";
   tf2::Quaternion orientation;
-  orientation.setRPY(-M_PI / 2, -M_PI / 4, -M_PI / 2);
+  // orientation.setRPY(-M_PI / 2, -M_PI / 4, -M_PI / 2);
+  orientation.setRPY(0, 0, 0);
   grasps[0].grasp_pose.pose.orientation = tf2::toMsg(orientation);
-  grasps[0].grasp_pose.pose.position.x = 0.415;
+  grasps[0].grasp_pose.pose.position.x = 0.15;
   grasps[0].grasp_pose.pose.position.y = 0;
-  grasps[0].grasp_pose.pose.position.z = 0.5;
+  grasps[0].grasp_pose.pose.position.z = 0.25;
 
   // Setting pre-grasp approach
   // ++++++++++++++++++++++++++
@@ -101,8 +102,8 @@ void pick(moveit::planning_interface::MoveGroupInterface& move_group)
   grasps[0].pre_grasp_approach.direction.header.frame_id = "arm_base_link";
   /* Direction is set as positive x axis */
   grasps[0].pre_grasp_approach.direction.vector.x = 1.0;
-  grasps[0].pre_grasp_approach.min_distance = 0.095;
-  grasps[0].pre_grasp_approach.desired_distance = 0.115;
+  grasps[0].pre_grasp_approach.min_distance = 0.01;
+  grasps[0].pre_grasp_approach.desired_distance = 0.1;
 
   // Setting post-grasp retreat
   // ++++++++++++++++++++++++++
@@ -110,8 +111,8 @@ void pick(moveit::planning_interface::MoveGroupInterface& move_group)
   grasps[0].post_grasp_retreat.direction.header.frame_id = "arm_base_link";
   /* Direction is set as positive z axis */
   grasps[0].post_grasp_retreat.direction.vector.z = 1.0;
-  grasps[0].post_grasp_retreat.min_distance = 0.1;
-  grasps[0].post_grasp_retreat.desired_distance = 0.25;
+  grasps[0].post_grasp_retreat.min_distance = 0.01;
+  grasps[0].post_grasp_retreat.desired_distance = 0.02;
 
   // Setting posture of eef before grasp
   // +++++++++++++++++++++++++++++++++++
@@ -146,8 +147,8 @@ void place(moveit::planning_interface::MoveGroupInterface& group)
 
   /* For place location, we set the value to the exact location of the center of the object. */
   place_location[0].place_pose.pose.position.x = 0;
-  place_location[0].place_pose.pose.position.y = 0.5;
-  place_location[0].place_pose.pose.position.z = 0.5;
+  place_location[0].place_pose.pose.position.y = 0.15;
+  place_location[0].place_pose.pose.position.z = 0.15;
 
   // Setting pre-place approach
   // ++++++++++++++++++++++++++
@@ -164,8 +165,9 @@ void place(moveit::planning_interface::MoveGroupInterface& group)
   place_location[0].post_place_retreat.direction.header.frame_id = "arm_base_link";
   /* Direction is set as negative y axis */
   place_location[0].post_place_retreat.direction.vector.y = -1.0;
+  place_location[0].post_place_retreat.direction.vector.z = 1.0;
   place_location[0].post_place_retreat.min_distance = 0.1;
-  place_location[0].post_place_retreat.desired_distance = 0.25;
+  place_location[0].post_place_retreat.desired_distance = 0.15;
 
   // Setting posture of eef after placing object
   // +++++++++++++++++++++++++++++++++++++++++++
@@ -274,7 +276,7 @@ int main(int argc, char** argv)
 
   ros::WallDuration(1.0).sleep();
 
-  // place(group);
+  place(group);
 
   ros::waitForShutdown();
   return 0;

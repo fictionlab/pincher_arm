@@ -46,7 +46,7 @@
 
 void openGripper(trajectory_msgs::JointTrajectory& posture)
 {
-  /* Add both finger joints of panda robot. */
+  /* Add both finger joints of the gripper. */
   posture.joint_names.resize(2);
   posture.joint_names[0] = "gripper_finger1_joint";
   posture.joint_names[1] = "gripper_finger2_joint";
@@ -61,7 +61,7 @@ void openGripper(trajectory_msgs::JointTrajectory& posture)
 
 void closedGripper(trajectory_msgs::JointTrajectory& posture)
 {
-  /* Add both finger joints of panda robot. */
+  /* Add both finger joints of the gripper. */
   posture.joint_names.resize(2);
   posture.joint_names[0] = "gripper_finger1_joint";
   posture.joint_names[1] = "gripper_finger2_joint";
@@ -83,13 +83,12 @@ void pick(moveit::planning_interface::MoveGroupInterface& move_group)
 
   // Setting grasp pose
   // ++++++++++++++++++++++
-  // This is the pose of panda_link8. |br|
+  // This is the pose of gripper_fake_link. |br|
   // Make sure that when you set the grasp_pose, you are setting it to be the pose of the last link in
-  // your manipulator which in this case would be `"panda_link8"` You will have to compensate for the
-  // transform from `"panda_link8"` to the palm of the end effector.
+  // your manipulator which in this case would be `"gripper_fake_link"` You will have to compensate for the
+  // transform from `"gripper_fake_link"` to the palm of the end effector.
   grasps[0].grasp_pose.header.frame_id = "arm_base_link";
   tf2::Quaternion orientation;
-  // orientation.setRPY(-M_PI / 2, -M_PI / 4, -M_PI / 2);
   orientation.setRPY(0, 0, 0);
   grasps[0].grasp_pose.pose.orientation = tf2::toMsg(orientation);
   grasps[0].grasp_pose.pose.position.x = 0.15;
@@ -130,9 +129,6 @@ void pick(moveit::planning_interface::MoveGroupInterface& move_group)
 
 void place(moveit::planning_interface::MoveGroupInterface& group)
 {
-  // TODO(@ridhwanluthra) - Calling place function may lead to "All supplied place locations failed. Retrying last
-  // location in verbose mode." This is a known issue. |br|
-  // |br|
   // Ideally, you would create a vector of place locations to be attempted although in this example, we only create
   // a single place location.
   std::vector<moveit_msgs::PlaceLocation> place_location;

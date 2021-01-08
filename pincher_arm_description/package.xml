@@ -6,6 +6,10 @@
     URDF Description package for PhantomX Pincher arm
   </description>
 
+  <author>Michael Ferguson</author>
+  <author>Melonee Wise</author>
+  <author>Błażej Sowa</author>
+
   <maintainer email="blazej@turtlerover.com">Błażej Sowa</maintainer>
 
   <license>BSD</license>

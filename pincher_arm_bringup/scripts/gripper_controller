@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 
 """
-  gripper_controller - action based controller for grippers.
-  Copyright (c) 2011-2014 Vanadium Labs LLC.  All right reserved.
+  Copyright (c) 2011-2014 Vanadium Labs LLC.  
+  Copyright (c) 2021 Kell Ideas Ltd.
+
+  All right reserved.
+  
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions are met:
       * Redistributions of source code must retain the above copyright

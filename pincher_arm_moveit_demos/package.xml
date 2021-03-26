@@ -6,7 +6,9 @@
     Moveit demos for the PhantomX Pincher arm.
   </description>
 
-  <maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
+  <author email="blazej@fictionlab.pl">Błażej Sowa</author>
+
+  <maintainer email="support@fictionlab.pl">Fictionlab</maintainer>
 
   <license>BSD</license>
 

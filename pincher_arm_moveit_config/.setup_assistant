@@ -7,5 +7,5 @@ moveit_setup_assistant_config:
     relative_path: config/pincher_arm.srdf
   CONFIG:
     author_name: Błażej Sowa
-    author_email: blazej@turtlerover.com
+    author_email: blazej@fictionlab.pl
     generated_timestamp: 1609612160

@@ -7,8 +7,10 @@
 
   <license>BSD</license>
   <license>Apache 2.0</license>
-  
-  <maintainer email="blazej@fictionlab.pl">Błażej Sowa</maintainer>
+
+  <author email="blazej@fictionlab.pl">Błażej Sowa</author>  
+
+  <maintainer email="support@fictionlab.pl">Fictionlab</maintainer>
   
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>tf2_kdl</build_depend>

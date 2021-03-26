@@ -1,0 +1,53 @@
+teleop:
+  cartesian_twist_command:
+    type: topic
+    message_type: geometry_msgs/TwistStamped
+    topic_name: servo_server/delta_twist_cmds
+    axis_mappings:
+      -
+        axis: 1
+        target: twist.linear.x
+        scale: 1
+        offset: 0
+      -
+        axis: 0
+        target: twist.linear.y
+        scale: 1
+        offset: 0
+      -
+        axis: 2
+        target: twist.linear.z
+        scale: 0.5
+        offset: -0.5
+      -
+        axis: 3
+        target: twist.angular.z
+        scale: 1
+        offset: 0
+      -
+        axis: 4
+        target: twist.angular.y
+        scale: 1
+        offset: 0
+      # -
+      #   axis: 5
+      #   target: twist.linear.z
+      #   scale: 0.5
+      #   offset: -1.0
+  gripper_close:
+    type: action
+    action_name: gripper_controller/gripper_action
+    action_goal:
+      command:
+        position: 0.002
+        max_effort: 1.0
+    buttons: [0]
+
+  gripper_open:
+    type: action
+    action_name: gripper_controller/gripper_action
+    action_goal:
+      command:
+        position: 0.03
+        max_effort: 1.0
+    buttons: [1]

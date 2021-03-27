@@ -1,5 +1,6 @@
 <launch>
   <arg name="sim" default="false"/>
+  <arg name="port" default="/dev/ttyUSB0"/>
 
   <param name="robot_description" 
          command="xacro $(find pincher_arm_description)/urdf/pincher_arm.urdf.xacro"/>
@@ -19,6 +20,7 @@
     <rosparam command="load"
               file="$(find pincher_arm_bringup)/config/arm.yaml" />
     <param name="sim" value="$(arg sim)"/>
+    <param name="port" value="$(arg port)"/>
   </node>
 
   <node name="gripper_transmission" 

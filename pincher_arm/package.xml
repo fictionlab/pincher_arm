@@ -16,7 +16,9 @@
 
   <exec_depend>pincher_arm_bringup</exec_depend>
   <exec_depend>pincher_arm_description</exec_depend>
+  <exec_depend>pincher_arm_ikfast_plugin</exec_depend>
   <exec_depend>pincher_arm_moveit_config</exec_depend>
+  <exec_depend>pincher_arm_moveit_demos</exec_depend>
 
   <export>
     <metapackage/>

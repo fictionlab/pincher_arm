@@ -17,8 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 find_package(LAPACK REQUIRED)
 
-include_directories(include)
-include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
+include_directories(${catkin_INCLUDE_DIRS} include)
 
 catkin_package()
 

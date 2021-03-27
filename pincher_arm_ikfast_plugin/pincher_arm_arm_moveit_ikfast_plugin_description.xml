@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <library path="lib/libpincher_arm_arm_moveit_ikfast_plugin">
-  <class name="pincher_arm_arm/IKFastKinematicsPlugin" type="pincher_arm_arm::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
+  <class base_class_type="kinematics::KinematicsBase" name="pincher_arm_arm/IKFastKinematicsPlugin" type="pincher_arm_arm::IKFastKinematicsPlugin">
     <description>IKFast61 plugin for closed-form kinematics of pincher_arm arm</description>
   </class>
 </library>

@@ -22,12 +22,12 @@
       joints_vlimit:=1.571
       pan_llimit:=-2.617
       pan_ulimit:=2.617
-      shoulder_llimit:=-2.2
-      shoulder_ulimit:=2.16
+      shoulder_llimit:=-2.09
+      shoulder_ulimit:=2.09
       elbow_llimit:=-2.42
-      elbow_ulimit:=2.38
-      wrist_llimit:=-1.72
-      wrist_ulimit:=1.68
+      elbow_ulimit:=2.42
+      wrist_llimit:=-1.71
+      wrist_ulimit:=1.79
       gripper_llimit:=-2.6
       gripper_ulimit:=0.0
       *origin">

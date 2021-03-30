@@ -10,7 +10,7 @@
   <arg name="debug" default="false" />
 
   <!-- By default, we will load or override the robot_description -->
-  <arg name="load_robot_description" default="true"/>
+  <arg name="load_robot_description" default="$(arg sim)"/>
 
   <arg name="use_rviz" default="true"/>
 

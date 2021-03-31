@@ -3,10 +3,6 @@
 
   <xacro:include filename="$(find pincher_arm_description)/urdf/pincher_arm.xacro"/>
   
-  <link name="base_link"/>
-  
-  <xacro:pincher_arm parent="base_link">
-    <origin xyz="0.0 0.0 0.0"/>
-  </xacro:pincher_arm>
+  <xacro:pincher_arm/>
 
 </robot>

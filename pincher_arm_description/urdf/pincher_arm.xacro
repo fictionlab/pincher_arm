@@ -17,7 +17,6 @@
   </material>
 
   <xacro:macro name="pincher_arm" params="
-      parent:=base_link
       color:=Gray
       joints_vlimit:=1.571
       pan_llimit:=-2.617
@@ -29,15 +28,9 @@
       wrist_llimit:=-1.71
       wrist_ulimit:=1.79
       gripper_llimit:=-2.6
-      gripper_ulimit:=0.0
-      *origin">
+      gripper_ulimit:=0.0">
 
     <link name="arm_base_link"/>
-    <joint name="arm_base_joint" type="fixed">
-      <xacro:insert_block name="origin"/>
-      <parent link="${parent}"/>
-      <child link="arm_base_link"/>
-    </joint>
 
     <!-- shoulder pan joint -->
     <xacro:dynamixel_AX12_fixed parent="arm_base_link" name="arm_shoulder_pan_servo">

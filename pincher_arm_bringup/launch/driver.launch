@@ -1,0 +1,33 @@
+<launch>
+  <arg name="sim" default="false"/>
+  <arg name="port" default="/dev/ttyUSB0"/>
+
+  <node name="arbotix" 
+        pkg="arbotix_python"
+        type="arbotix_driver"
+        clear_params="true">
+    <rosparam command="load"
+              file="$(find pincher_arm_bringup)/config/arm.yaml" />
+    <param name="sim" value="$(arg sim)"/>
+    <param name="port" value="$(arg port)"/>
+  </node>
+
+  <node name="fake_joint_pub" 
+        pkg="pincher_arm_bringup"
+        type="fake_joint_pub"/>
+
+  <node name="gripper_transmission" 
+        pkg="pincher_arm_bringup"
+        type="gripper_transmission">
+    <rosparam command="load"
+              file="$(find pincher_arm_bringup)/config/gripper_transmission.yaml"/>
+  </node>
+
+  <node name="gripper_controller"
+        pkg="pincher_arm_bringup"
+        type="gripper_controller"
+        clear_params="true">
+    <rosparam command="load"
+              file="$(find pincher_arm_bringup)/config/gripper_controller.yaml" />
+  </node>
+</launch>

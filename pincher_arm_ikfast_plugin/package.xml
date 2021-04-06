@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <package format="2">
   <name>pincher_arm_ikfast_plugin</name>
-  <version>0.1.1</version>
+  <version>0.2.0</version>
   <description>IKFast plugin for the PhantomX Pincher arm</description>
   <license>BSD</license>
   <license>Apache 2.0</license>

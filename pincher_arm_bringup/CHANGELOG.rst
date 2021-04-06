@@ -2,8 +2,8 @@
 Changelog for package pincher_arm_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.0 (2021-04-06)
+------------------
 * Add driver.launch file
 * Add license to fake_joint_pub script
 

@@ -2,6 +2,9 @@
 Changelog for package pincher_arm_moveit_demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.1 (2021-03-27)
 ------------------
 
